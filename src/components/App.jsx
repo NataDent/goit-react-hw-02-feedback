@@ -38,7 +38,7 @@ export class App extends Component {
               neutral={neutral}
               bad={bad}
               options={Object.keys(this.state)}
-              onClick={this.handlerClick}
+              onLeaveFeedback={this.onLeaveFeedback}
               countTotalFeedback={this.countTotalFeedback}
               countPositiveFeedbackPercentage={this.countPositivePercentage}
             />
