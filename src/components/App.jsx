@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Section } from './Section/Section';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -11,15 +11,17 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = e => {
+  onLeaveFeedback = options => {
+    console.dir(this.state);
     this.setState(prevState => ({
-      [e.target.name]: prevState[e.target.name] + 1,
+      [options]: prevState[options] + 1,
     }));
     this.countTotalFeedback();
   };
 
-  countTotalFeedback = () =>
-    Object.values(this.state).reduce((acc, el) => acc + el);
+  countTotalFeedback = () => {
+    Object.values(this.state).reduce((acc, el) => acc + el, 0);
+  };
 
   countPositivePercentage = () =>
     Math.round((this.state.good / this.countTotalFeedback()) * 100);
@@ -42,8 +44,6 @@ export class App extends Component {
               good={good}
               neutral={neutral}
               bad={bad}
-              options={Object.keys(this.state)}
-              onLeaveFeedback={this.onLeaveFeedback}
               countTotalFeedback={this.countTotalFeedback}
               countPositiveFeedbackPercentage={this.countPositivePercentage}
             />
