@@ -10,7 +10,7 @@ export const ButtonsBar = styled.ul`
 `;
 
 export const Button = styled.button`
-  background-color: ${colorByOptions()}
+  background-color: ${({ option }) => colorByOptions(option)};
   font-size: 18px;
   padding: 8px;
   border: 1px solid grey;
