@@ -1,43 +1,29 @@
 import styled from 'styled-components';
+import { colorByOptions } from 'components/utils/colorByOptions';
 
 export const ButtonsBar = styled.ul`
   margin-top: 20px;
   display: flex;
+  justify-content: center;
+  aline-items: center;
   gap: 30px;
 `;
 
 export const Button = styled.button`
-  padding: 20px 0;
-  margin-top: 50px;
-
+  background-color: ${({ option }) => colorByOptions(option)};
+  font-size: 18px;
+  padding: 8px;
+  border: 1px solid grey;
+  border-radius: 6px;
+  min-width: 80px;
   cursor: pointer;
-  width: 200px;
-  font-size: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: none;
-  border-radius: 8px;
-  background: none;
-  color: rgba(255, 255, 255, 0.63);
-  box-shadow: 7px 6px 9px 0px rgba(0, 0, 0, 0.32),
-    -5px -4px 14px 0px rgba(84, 56, 197, 0.2);
-  transition: background 250ms linear;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: all 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 
-  :active {
-    box-shadow: inset 7px 6px 9px 0px rgba(0, 0, 0, 0.32),
-      inset -5px -4px 14px 0px rgba(84, 56, 197, 0.2);
-    color: rgba(255, 255, 255, 0.24);
-  }
-
-  :nth-of-type(1):hover {
-    background: #00ff00;
-  }
-
-  :nth-of-type(2):hover {
-    background: #ff8c00;
-  }
-
-  :nth-of-type(3):hover {
-    background: #ff0000;
+  :hover {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    transform: scale(1.1);
   }
 `;

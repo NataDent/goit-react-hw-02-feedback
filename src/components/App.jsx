@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import { Section } from './Section/Section';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -7,12 +11,8 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = e => {
-    this.setState(prevState => ({
-      [e.target.name]: prevState[e.target.name] + 1,
-    }));
-    this.countTotalFeedback();
-  };
+  onLeaveFeedback = state =>
+    this.setState(prevState => ({ [state]: prevState[state] + 1 }));
 
   countTotalFeedback = () =>
     Object.values(this.state).reduce((acc, el) => acc + el);
@@ -22,7 +22,7 @@ export class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-
+    const total = this.countTotalFeedback;
     return (
       <>
         <Section title="Please leave feedback">
@@ -32,7 +32,7 @@ export class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          {this.countTotalFeedback() > 0 ? (
+          {total() > 0 ? (
             <Statistics
               good={good}
               neutral={neutral}
