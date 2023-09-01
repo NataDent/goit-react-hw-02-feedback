@@ -11,8 +11,12 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = state =>
-    this.setState(prevState => ({ [state]: prevState[state] + 1 }));
+  onLeaveFeedback = e => {
+    this.setState(prevState => ({
+      [e.target.name]: prevState[e.target.name] + 1,
+    }));
+    this.countTotalFeedback();
+  };
 
   countTotalFeedback = () =>
     Object.values(this.state).reduce((acc, el) => acc + el);
@@ -23,6 +27,7 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback;
+
     return (
       <>
         <Section title="Please leave feedback">
