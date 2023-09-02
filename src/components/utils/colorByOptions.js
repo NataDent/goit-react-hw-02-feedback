@@ -3,7 +3,7 @@ export const colorByOptions = option => {
     case 'good':
       return 'lightgreen';
     case 'neutral':
-      return 'lightyellow';
+      return 'yellow';
     case 'bad':
       return 'pink';
     default:

@@ -12,7 +12,6 @@ export class App extends Component {
   };
 
   onLeaveFeedback = options => {
-    console.dir(this.state);
     this.setState(prevState => ({
       [options]: prevState[options] + 1,
     }));
