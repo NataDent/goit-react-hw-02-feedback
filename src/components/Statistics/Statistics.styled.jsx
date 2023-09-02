@@ -6,6 +6,6 @@ export const StatisticsList = styled.ul`
   gap: 8px;
 `;
 
-export const StatisticsText = styled.li`
+export const StatisticsText = styled.h2`
   font-size: 18px;
 `;
