@@ -20,11 +20,11 @@ export const Statistics = ({
         <StatisticsText>Bad: {bad}</StatisticsText>
       </li>
       <li>
-        <StatisticsText>Total: {total()}</StatisticsText>
+        <StatisticsText>Total: {total}</StatisticsText>
       </li>
       <li>
         <StatisticsText>
-          Positive feeedback: {positivePercentage()} %
+          Positive feeedback: {positivePercentage} %
         </StatisticsText>
       </li>
     </StatisticsList>

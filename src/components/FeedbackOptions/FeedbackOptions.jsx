@@ -1,4 +1,4 @@
-import { Button, ButtonsBar } from './FeedbackOptions.styled';
+import { Button, ButtonWrapper, ButtonsBar } from './FeedbackOptions.styled';
 import PropTypes from 'prop-types';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -6,7 +6,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <ButtonsBar>
       {options.length &&
         options.map(option => (
-          <li key={option}>
+          <ButtonWrapper key={option}>
             <Button
               name={option}
               type="button"
@@ -14,7 +14,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             >
               {option}
             </Button>
-          </li>
+          </ButtonWrapper>
         ))}
     </ButtonsBar>
   );
